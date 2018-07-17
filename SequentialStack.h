@@ -1,46 +1,46 @@
 #ifndef _STACK_H_
 #define _STACK_H_
-#define MAXSIZE 1000
-//typedef char ElementType;
-//int stack
+#define MAXSIZE 1000      //定义最大线性栈的存储空间
+
 typedef struct {
 	int* array;
 	int Top;
 	int len;
 }intStack;
 
-intStack* intCreateStack();						//create stack
-void intPush(intStack* PtrS, int item);	//insertion
-int intPop(intStack* PtrS);				//departion
-int intIsEmpty(intStack* S);						//
+//int型的栈
+intStack* intCreateStack();					
+void intPush(intStack* PtrS, int item);	
+int intPop(intStack* PtrS);				
+int intIsEmpty(intStack* S);						
 void intClearStack(intStack* PtrS);		
 int intGetTop(intStack* s);		
 
-//char stack
+//char型栈
 typedef struct {
 	char* array;
 	int Top;
 	int len;
 }charStack;
 
-charStack* charCreateStack();						//create stack
-void charPush(charStack* PtrS, char item);	//insertion
-char charPop(charStack* PtrS);				//departion
-int charIsEmpty(charStack* S);						//
+charStack* charCreateStack();		
+void charPush(charStack* PtrS, char item);	
+char charPop(charStack* PtrS);				
+int charIsEmpty(charStack* S);						
 void charClearStack(charStack* PtrS);		
 char charGetTop(charStack* s);		
 
-//double stack
+//double型栈
 typedef struct {
 	double* array;
 	int Top;
 	int len;
 }doubleStack;
 
-doubleStack* doubleCreateStack();						//create stack
-void doublePush(doubleStack* PtrS, double item);	//insertion
-double doublePop(doubleStack* PtrS);				//departion
-int doubleIsEmpty(doubleStack* S);						//
+doubleStack* doubleCreateStack();						
+void doublePush(doubleStack* PtrS, double item);	
+double doublePop(doubleStack* PtrS);				
+int doubleIsEmpty(doubleStack* S);						
 void doubleClearStack(doubleStack* PtrS);		
 double doubleGetTop(doubleStack* s);		
 

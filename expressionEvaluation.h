@@ -7,10 +7,10 @@
 #ifndef _EXPRESSIONEVALUATION_H_
 #define _EXPRESSIONEVALUATION_H_
 #include<stdio.h>
-int infixToPostfix(char* infoxExpression, char postfixExpression[]);
-int computeValueFromPostfix(char* postfixExpression, double *value);
-int Priority(char c);
-int getNumOfExpression(char* postfixExpression, double numberArray[]);
+int infixToPostfix(char* infoxExpression, char postfixExpression[]);      //中缀转后缀
+int computeValueFromPostfix(char* postfixExpression, double *value);      //计算后缀表达式
+int Priority(char c);                                                     //操作符优先级计算函数
+int getNumOfExpression(char* postfixExpression, double numberArray[]);    //得到后缀表达式中double型的操作数
 
 #endif
 

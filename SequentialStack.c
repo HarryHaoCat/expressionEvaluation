@@ -4,33 +4,24 @@
 #include<string.h>
 #include "SequentialStack.h"
 
-
-
+//int型栈的实现
 intStack* intCreateStack() //建栈,第一个位置从0开始；
 {
 	intStack* p = (intStack*)malloc(sizeof(intStack));
 	p->array = (int*)malloc(MAXSIZE*sizeof(int));
-	/*for (int i = 0; i < MAXSIZE; i++)
-	{
-		p->array[i] = 0;
-	}*/
 	p->Top = 0; 
 	p->len = MAXSIZE;  
 	return p;
 }
 void intPush(intStack* PtrS, int item) 
 {
-	//assert(PtrS->Top <= MAXSIZE - 1,"The stack is full");
 	if(PtrS->Top >= PtrS->len)
 	{
 		int *array =  (int*)malloc((PtrS->Top  + MAXSIZE)*sizeof(int));
-		//printf("array size = %lx\n", sizeof(array)/sizeof(array[0]));
-		//int top = PtrS->Top;
 		int L = PtrS->len;
 		memcpy(array, PtrS->array, L * sizeof(int));
 		free(PtrS->array);
 		PtrS->array = array;
-		//PtrS->Top = top;
 		PtrS->len = L + MAXSIZE;
 		
 	}
@@ -38,6 +29,7 @@ void intPush(intStack* PtrS, int item)
 	//printf("%d Push success!\n", PtrS->array[PtrS->Top - 1]);
 	
 }
+
 int intPop(intStack * PtrS)  //出栈；
 {
 	if(PtrS->Top == 0)
@@ -49,6 +41,7 @@ int intPop(intStack * PtrS)  //出栈；
 	PtrS->Top = PtrS->Top - 1;
 	return data;
 }
+
 int intIsEmpty(intStack* S)   //判断栈是否为空；
 {
 	if (S->Top == 0)
@@ -63,13 +56,14 @@ int intIsEmpty(intStack* S)   //判断栈是否为空；
 		return 0;
 	}
 }
-void intClearStack(intStack* PtrS)
+
+void intClearStack(intStack* PtrS) //清除栈
 {
 	free(PtrS);
 	//printf("ClearStack success!\n");
 }
 
-int intGetTop(intStack* s)
+int intGetTop(intStack* s)       //得到栈顶元素
 {
 	if(s->Top == 0)
 	{
@@ -79,32 +73,25 @@ int intGetTop(intStack* s)
 	int data =  s->array[s->Top - 1];
 }
 
-//char int intStack
+//char型栈的实现
 charStack* charCreateStack() //建栈,第一个位置从0开始；
 {
 	charStack* p = (charStack*)malloc(sizeof(charStack));
 	p->array = (char*)malloc(MAXSIZE*sizeof(char));
-	/*for (char i = 0; i < MAXSIZE; i++)
-	{
-		p->array[i] = 0;
-	}*/
 	p->Top = 0; 
 	p->len = MAXSIZE;  
 	return p;
 }
-void charPush(charStack* PtrS, char item) 
+
+void charPush(charStack* PtrS, char item) //入栈函数
 {
-	//assert(PtrS->Top <= MAXSIZE - 1,"The stack is full");
 	if(PtrS->Top >= PtrS->len)
 	{
 		char *array =  (char*)malloc((PtrS->Top  + MAXSIZE)*sizeof(char));
-		//printf("array size = %lx\n", sizeof(array)/sizeof(array[0]));
-		//int top = PtrS->Top;
 		char L = PtrS->len;
 		memcpy(array, PtrS->array, L * sizeof(char));
 		free(PtrS->array);
 		PtrS->array = array;
-		//PtrS->Top = top;
 		PtrS->len = L + MAXSIZE;
 		
 	}
@@ -112,6 +99,7 @@ void charPush(charStack* PtrS, char item)
 	//printf("%c Push success!\n", PtrS->array[PtrS->Top - 1]);
 	
 }
+
 char charPop(charStack * PtrS)  //出栈；
 {
 	if(PtrS->Top == 0)
@@ -123,6 +111,7 @@ char charPop(charStack * PtrS)  //出栈；
 	PtrS->Top = PtrS->Top - 1;
 	return data;
 }
+
 int charIsEmpty(charStack* S)   //判断栈是否为空；
 {
 	if (S->Top == 0)
@@ -137,13 +126,14 @@ int charIsEmpty(charStack* S)   //判断栈是否为空；
 		return 0;
 	}
 }
-void charClearStack(charStack* PtrS)
+
+void charClearStack(charStack* PtrS)     //清除栈的函数
 {
 	free(PtrS);
 	//printf("ClearStack success!\n");
 }
 
-char charGetTop(charStack* s)
+char charGetTop(charStack* s)             //得到栈顶元素
 {
 	if(s->Top == 0)
 	{
@@ -153,7 +143,7 @@ char charGetTop(charStack* s)
 	char data =  s->array[s->Top - 1];
 }
 
-//double int  intStack
+//double型栈的实现
 doubleStack* doubleCreateStack() //建栈,第一个位置从0开始；
 {
 	doubleStack* p = (doubleStack*)malloc(sizeof(doubleStack));
@@ -166,19 +156,16 @@ doubleStack* doubleCreateStack() //建栈,第一个位置从0开始；
 	p->len = MAXSIZE;  
 	return p;
 }
-void doublePush(doubleStack* PtrS, double item) 
+
+void doublePush(doubleStack* PtrS, double item)     //入栈函数
 {
-	//assert(PtrS->Top <= MAXSIZE - 1,"The stack is full");
 	if(PtrS->Top >= PtrS->len)
 	{
 		double *array =  (double*)malloc((PtrS->Top  + MAXSIZE)*sizeof(double));
-		//printf("array size = %lx\n", sizeof(array)/sizeof(array[0]));
-		//int top = PtrS->Top;
 		double L = PtrS->len;
 		memcpy(array, PtrS->array, L * sizeof(double));
 		free(PtrS->array);
 		PtrS->array = array;
-		//PtrS->Top = top;
 		PtrS->len = L + MAXSIZE;
 		
 	}
@@ -186,6 +173,7 @@ void doublePush(doubleStack* PtrS, double item)
 	//printf("%f Push success!\n", PtrS->array[PtrS->Top - 1]);
 	
 }
+
 double doublePop(doubleStack * PtrS)  //出栈；
 {
 	if(PtrS->Top == 0)
@@ -197,6 +185,7 @@ double doublePop(doubleStack * PtrS)  //出栈；
 	PtrS->Top = PtrS->Top - 1;
 	return data;
 }
+
 int doubleIsEmpty(doubleStack* S)   //判断栈是否为空；
 {
 	if (S->Top == 0)
@@ -211,13 +200,14 @@ int doubleIsEmpty(doubleStack* S)   //判断栈是否为空；
 		return 0;
 	}
 }
-void doubleClearStack(doubleStack* PtrS)
+
+void doubleClearStack(doubleStack* PtrS)    //清除栈
 {
 	free(PtrS);
 	//printf("ClearStack success!\n");
 }
 
-double doubleGetTop(doubleStack* s)
+double doubleGetTop(doubleStack* s)        //得到栈顶元素
 {
 	if(s->Top == 0)
 	{

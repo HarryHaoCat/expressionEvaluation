@@ -9,6 +9,7 @@
 #include "SequentialStack.h"
 #include <math.h>
 
+//操作符优先级计算函数
 int getNumOfExpression(char* postfixExpression, double numberArray[]);
 int Priority(char c)
 {
@@ -22,6 +23,7 @@ int Priority(char c)
 	}
 }
 
+//中缀转后缀
 int infixToPostfix(char* infixExpression, char postfixExpression[])
 {
 	charStack* s = charCreateStack();
@@ -85,7 +87,7 @@ int infixToPostfix(char* infixExpression, char postfixExpression[])
     return 1;
 }
 
-
+//计算后缀表达式
 int computeValueFromPostfix(char* postfixExpression, double *value)
 {
 	double numberArray[100] = {0.0};
@@ -129,9 +131,11 @@ int computeValueFromPostfix(char* postfixExpression, double *value)
 	for(int i = 0; i < 100; i++)
         postfixExpression[i] = '\0';
     *value = (double)(doublePop(ds)/1.0);
+    //printf("sizeof value: %d\n", sizeof(*value));
     return 1;
 }
 
+//得到后缀表达式中double型的操作数
 int getNumOfExpression(char* postfixExpression, double numberArray[])
 {
 	doubleStack* ds = doubleCreateStack(); 
